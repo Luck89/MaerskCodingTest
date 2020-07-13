@@ -7,6 +7,6 @@ namespace CodingTest.ProductTypes.PhysicalProducts
 {
     public interface IBook : IPhysicalProduct
     {
-        Task GeneratePackingSlipForRoyaltyDepartment();
+        void GeneratePackingSlipForRoyaltyDepartment();
     }
 }

@@ -8,7 +8,7 @@ namespace CodingTest.ProductTypes
 {
     public interface IVideoLearning : IProduct
     {
-        Task AddFreeFirstAidVideo(VideoTypes vType);
+        void AddFreeFirstAidVideo(VideoTypes vType);
     }
 
     public enum VideoTypes

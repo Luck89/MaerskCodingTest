@@ -8,8 +8,8 @@ namespace CodingTest.ProductTypes.PhysicalProducts
 {
     public interface IPhysicalProduct : IProduct
     {
-        Task GeneratePackingSlip();
+        void GeneratePackingSlipForShipping();
 
-        Task PayCommisionToAgent(int commisionInPercentage);
+        void PayCommisionToAgent(int commisionInPercentage);
     }
 }

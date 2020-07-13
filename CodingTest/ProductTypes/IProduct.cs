@@ -7,6 +7,6 @@ namespace CodingTest.ProductTypes
 {
     public interface IProduct
     {
-        Task MakePayment();
+        void MakePayment();
     }
 }
