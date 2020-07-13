@@ -1,4 +1,5 @@
-﻿using CodingTest.ProductTypes.PhysicalProducts;
+﻿using CodingTest.PackingSlipGenerator;
+using CodingTest.ProductTypes.PhysicalProducts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,14 +9,19 @@ namespace CodingTest.ProductImplementation
 {
     public class ProductBook : IBook
     {
+        private readonly IPackingSlipGenerator _printService;
+        public ProductBook(IPackingSlipGenerator printService)
+        {
+            _printService = printService;
+        }
         public void GeneratePackingSlipForRoyaltyDepartment()
         {
-            Console.WriteLine("Packing slip generated for the Royalty department for the purchase of the book");
+            _printService.GeneratePackingSlip(PackingSlipDestination.RoyaltyDepartment);
         }
 
         public void GeneratePackingSlipForShipping()
         {
-            Console.WriteLine("Packing slip generated for shipping of book");
+            _printService.GeneratePackingSlip(PackingSlipDestination.Shipping);
         }
 
         public void MakePayment()

@@ -1,4 +1,7 @@
 ﻿using System;
+using CodingTest.Notification;
+using CodingTest.PackingSlipGenerator;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CodingTest
 {
@@ -6,7 +9,17 @@ namespace CodingTest
     {
         public static void Main(string[] args)
         {
-            PaymentHandler ph = new PaymentHandler();
+            var serviceCollection = new ServiceCollection();
+
+            //Service configuration setup for dependency injection
+            serviceCollection.AddTransient<INotifier, EmailNotifier>();
+            serviceCollection.AddTransient<IPackingSlipGenerator, PackingSlpGenerator>();
+
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            // This is where dependency is injected and the instance is created
+            PaymentHandler ph = ActivatorUtilities.CreateInstance<PaymentHandler>(serviceProvider);
+
             ph.InitializePayment();
         }
     }

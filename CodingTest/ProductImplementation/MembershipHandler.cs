@@ -11,6 +11,7 @@ namespace CodingTest.ProductImplementation
     {
         private readonly MembershipType _membershipType;
         private readonly INotifier _notificationService;
+
         public MembershipHandler(MembershipType mt, INotifier notificationService)
         {
             _membershipType = mt;

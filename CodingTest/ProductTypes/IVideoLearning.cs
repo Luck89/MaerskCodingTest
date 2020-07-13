@@ -8,12 +8,13 @@ namespace CodingTest.ProductTypes
 {
     public interface IVideoLearning : IProduct
     {
-        void AddFreeFirstAidVideo(VideoTypes vType);
+        void AddFreeFirstAidVideo();
     }
 
     public enum VideoTypes
     {
         [Description("Learning to Ski")]
-        LearningToSky = 1
+        LearningToSki = 1,
+        Others = 2
     }
 }

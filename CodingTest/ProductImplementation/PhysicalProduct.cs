@@ -1,4 +1,5 @@
-﻿using CodingTest.ProductTypes.PhysicalProducts;
+﻿using CodingTest.PackingSlipGenerator;
+using CodingTest.ProductTypes.PhysicalProducts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,9 +9,15 @@ namespace CodingTest.ProductImplementation
 {
     public class PhysicalProduct : IPhysicalProduct
     {
+        private readonly IPackingSlipGenerator _printService;
+        public PhysicalProduct(IPackingSlipGenerator printService)
+        {
+            _printService = printService;
+        }
+
         public void GeneratePackingSlipForShipping()
         {
-            Console.WriteLine("Packing slip generated for shipping for Physical product");
+            _printService.GeneratePackingSlip(PackingSlipDestination.Shipping);
         }
 
         public void MakePayment()
