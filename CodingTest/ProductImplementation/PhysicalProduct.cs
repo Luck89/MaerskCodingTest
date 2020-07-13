@@ -24,6 +24,8 @@ namespace CodingTest.ProductImplementation
         {
             Console.WriteLine("Payment made for Physical Product.");
             GeneratePackingSlipForShipping();
+
+            //Setting up 10% commision for the agent.
             PayCommisionToAgent(10);
         }
 
